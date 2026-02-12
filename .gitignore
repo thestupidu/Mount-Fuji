@@ -2,3 +2,8 @@
 *.ttf
 *.py
 DownloadFile/
+meteocons/
+weather-icons/
+WebParserDump.txt
+!Victory Striker Sans Demo.otf
+!Inter-VariableFont_opsz,wght.ttf
