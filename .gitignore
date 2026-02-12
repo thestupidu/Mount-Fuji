@@ -1,3 +1,4 @@
 *.otf
 *.ttf
-change.py
+*.py
+DownloadFile/
