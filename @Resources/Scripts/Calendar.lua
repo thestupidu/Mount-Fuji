@@ -30,6 +30,7 @@ function CreateCalendar()
     local padY = tonumber(SKIN:GetVariable('PadY'))
     local sundayFontColor = SKIN:GetVariable('SundayFontColor')
     local dateFontColor = SKIN:GetVariable('DateFontColor')
+    local scale=tonumber(SKIN:GetVariable('Scale'))
 
     -- Loop through all days of the current month
     for day = 1, totalDays do
@@ -44,8 +45,8 @@ function CreateCalendar()
         local column = (cellPosition) % 7
         local row = math.floor((cellPosition) / 7)
 
-        local xPos = baseX + (column * padX)
-        local yPos = baseY + (row * padY)
+        local xPos = (baseX + (column * padX))*scale
+        local yPos = (baseY + (row * padY))*scale
 
         if column == 0 and day == currentDate then
             SKIN:Bang('!SetOption', dateMeterName, 'FontColor', "85, 101, 133")
@@ -53,8 +54,8 @@ function CreateCalendar()
             SKIN:Bang('!SetOption', "MeterToday", 'Y', yPos)
         elseif day == currentDate then
             SKIN:Bang('!SetOption', dateMeterName, 'FontColor', "85, 101, 133")
-            SKIN:Bang('!SetOption', "MeterToday", 'X', xPos - 13)
-            SKIN:Bang('!SetOption', "MeterToday", 'Y', yPos - 13.5)
+            SKIN:Bang('!SetOption', "MeterToday", 'X', xPos - 13*scale)
+            SKIN:Bang('!SetOption', "MeterToday", 'Y', yPos - 13*scale)
         elseif column == 0 then
             SKIN:Bang('!SetOption', dateMeterName, 'FontColor', sundayFontColor)
         else
